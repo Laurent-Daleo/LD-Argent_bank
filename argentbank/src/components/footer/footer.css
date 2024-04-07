@@ -1,0 +1,10 @@
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid #ccc;
+    height: 75px;
+}
+.footer_text{
+    color: #2c3e50
+}

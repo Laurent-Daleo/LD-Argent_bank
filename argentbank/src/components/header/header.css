@@ -1,0 +1,32 @@
+
+.header_content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 65px;
+}
+.logo_content{
+    max-width: 100%;
+    width: 200px;
+    height:54px ;
+}
+.logo{
+    width: 200px;
+    height:54px ;
+}
+.nav_link{
+    margin-right: 1.5rem;
+}
+.link_loggin{
+    font-weight: bold;
+    color: #2c3e50;
+    text-decoration: none;
+    margin-left: 15px;
+}
+.link_loggin:hover{
+    text-decoration: underline;
+}
+.link_loggin i{
+    margin-right: 5px;
+}

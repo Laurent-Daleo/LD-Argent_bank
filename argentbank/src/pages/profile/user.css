@@ -1,0 +1,113 @@
+.background_dark{
+    width: 100%;
+    height: 858px;
+    background-color:#12002b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.edit_name_banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.edit_name_btn{
+    background-color: #00bc77;
+    border: #00bc77;
+    padding: 10px;
+    color: white;
+    margin-bottom: 32px;
+    cursor: pointer;
+}
+.edit_user_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.user_name_content,.first_name_content,.last_name_content{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+#user_name,#first_name,#last_name{
+    max-width: 90px;
+    width: 100%;
+}
+.save_user_name{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.save,.cancel{
+    min-width: 130px;
+    width: 100%;
+    padding: 10px;
+    background-color: #00bc77;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.display_error{
+    color: red;
+    margin-top: 5px;
+    font-size: 16px;
+}
+.account{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 24px;
+    margin-bottom: 32px;
+}
+.account_content_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+}
+.acount_title{
+    font-size: 1rem;
+    font-weight: normal;
+    margin:0;
+}
+.account_amout{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.transaction_btn{
+    width: 30%;
+    background-color: #00bc77;
+    border-color: #00bc77;
+    color: #fff;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+@media screen and (max-width: 426px){
+    .background_dark{
+
+    }
+    .account{
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .transaction_btn{
+        width: 100%;
+    }
+}
