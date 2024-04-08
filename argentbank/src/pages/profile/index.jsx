@@ -53,7 +53,8 @@ const Profile = () => {
             
         // mettre à jour redux
         dispatch(setProfile(userName))
-        dispatch(setProfile(user))
+        dispatch(setProfile({ ...user, username: userName }));
+        
         // Si ok on ferme le formulaire
         setIsEditFormVisible(false)
         }else{
