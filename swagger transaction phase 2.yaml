@@ -1,0 +1,158 @@
+swagger: '2.0'
+info:
+  title: Bank Argent API documentation
+  description: Contains all available API endpoints transactions in this codebase
+  version: '1.0.0'
+  termsOfService: 'http://swagger.io/terms/'
+host: localhost:3001
+basePath: /api/v1
+schemes:
+  - https
+paths:
+  /user/transactions:
+    get:
+      tags:
+        - User Transactions Module
+      summary: Transactions
+      description: API for get group transactions for the month
+      parameters:
+        - in: body
+          name: body
+          description: Transactions Payload
+          required: true
+          schema:
+            $ref: '#/definitions/Transactions'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Get Transations Successfully
+          schema:
+            $ref: '#/definitions/AllTrasactionsResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+  /user/transaction/id:
+    get:
+      tags:
+        - User Transactions Module
+      summary: Transaction
+      description: API for get informations of transaction selected
+      parameters:
+        - in: body
+          name: body
+          description: Transaction Payload
+          required: true
+          schema:
+            $ref: '#/definitions/SelectedTransaction'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Get Transation Successfully
+          schema:
+            $ref: '#/definitions/TransactionResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+    put:
+      security:
+        - Bearer: []
+      tags:
+        - User Transactions Module
+      summary: Update transaction
+      description: API for updating a user transaction selected
+      parameters:
+        - in: body
+          name: body
+          description: Update user transaction 
+          required: true
+          schema:
+            $ref: '#/definitions/SelectedTransactionUpdate'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Update transaction successully
+
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+definitions:
+  Transactions:
+    properties:
+      token:
+        type: string
+        description: user public name
+  AllTrasactionsResponse:
+    properties:
+      available_balance:
+        type: number
+        description: available balance user
+      dates:
+        type: string
+        description: dates transaction
+      descriptions:
+        type: string
+        description: description transactions
+      amount:
+        type: number
+        description: amount transactions
+      account balance:
+        type: number
+        description: description transactions
+  TransactionResponse:
+     properties:
+      date:
+        type: string
+        description: dates transaction
+      description:
+        type: string
+        description: description transactions
+      category:
+        type: string
+        description: description transactions
+      note:
+        type: string
+        description: description transactions
+      amount:
+        type: number
+        description: amount transactions
+      account balance:
+        type: number
+        description: description transactions
+  SelectedTransaction:
+     properties:
+      id:
+        type: string
+        description: dates transaction
+      token:
+        type: string
+        description: description transactions
+  SelectedTransactionUpdate:
+     properties:
+      id:
+        type: string
+        description: dates transaction
+      token:
+        type: string
+        description: description transactions
+      category:
+        type: string
+        description: description transactions
+      note:
+        type: string
+        description: description transactions
+      
+  
+
+
+
