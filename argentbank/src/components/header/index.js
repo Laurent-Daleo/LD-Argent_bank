@@ -30,7 +30,8 @@ const Header = () => {
                 </>}
 
                 {user.firstname && <>
-                    {user.firstname} {user.lastname}
+                    <Link className='link_loggin' to="/profile">{user.username}
+                    </Link>
                     <Link className='link_loggin' to="/" onClick={handleLogout}>
                         <i className="fa fa-user-circle"></i>Logout
                     </Link>
