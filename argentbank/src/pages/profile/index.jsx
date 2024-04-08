@@ -5,6 +5,7 @@ import Footer from '../../components/footer';
 import { setProfile } from '../../feature/userSlice';
 import './user.css'
 import { useNavigate } from 'react-router-dom';
+import AccountElement from '../../components/accountElement';
 
 const Profile = () => {
     const [isEditFormVisible, setIsEditFormVisible] = useState(false);
@@ -117,22 +118,7 @@ const Profile = () => {
                     )}
                 </div>
                 {accountsData.map((account, index) => (
-                    <section key={index} className="account">
-                        <div className="account_content_wrapper">
-                            <h3 className="acount_title">
-                                {account.name} ({account.number})
-                            </h3>
-                            <p className="account_amout">
-                                {account.balance}
-                            </p>
-                            <p className="account_description">
-                                {account.description}
-                            </p>
-                        </div>
-                        <button className="transaction_btn">
-                            View transaction
-                        </button>
-                    </section>
+                    <AccountElement key={index} account={account} />
                 ))}
             </main>
             <Footer />
