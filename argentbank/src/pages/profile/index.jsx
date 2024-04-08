@@ -12,7 +12,7 @@ const Profile = () => {
     const navigate = useNavigate();
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
-
+    const [accountsData, setAccountsData] = useState([]);
 
     const [userName, setUserName] = useState('');
 
@@ -62,6 +62,18 @@ const Profile = () => {
         })
         setErrorMessage('');
      }
+     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(process.env.PUBLIC_URL + '/accounts.json');
+                const data = await response.json();
+                setAccountsData(data);
+            } catch (error) {
+                console.error('Error fetching accounts data:', error);
+            }
+        };
+        fetchData();
+    }, []);
 
     return (
         <div className='user_page' >
@@ -104,54 +116,24 @@ const Profile = () => {
                     </form>
                     )}
                 </div>
-                    <section className="account">
+                {accountsData.map((account, index) => (
+                    <section key={index} className="account">
                         <div className="account_content_wrapper">
                             <h3 className="acount_title">
-                                Argent Bank Checking (x8349)
+                                {account.name} ({account.number})
                             </h3>
                             <p className="account_amout">
-                                $2,082.79
+                                {account.balance}
                             </p>
                             <p className="account_description">
-                                Available Balance
+                                {account.description}
                             </p>
                         </div>
-                            <button className="transaction_btn">
-                                View transaction
-                            </button>
-                        </section>
-                    <section className="account">
-                        <div className="account_content_wrapper">
-                            <h3 className="acount_title">
-                                Argent Bank Savings (x6712)
-                            </h3>
-                            <p className="account_amout">
-                                $10,928.42
-                            </p>
-                            <p className="account_description">
-                                Available Balance
-                            </p>
-                        </div>
-                            <button className="transaction_btn">
-                                View transaction
-                            </button>
-                        </section>
-                    <section className="account">
-                        <div className="account_content_wrapper">
-                            <h3 className="acount_title">
-                                Argent Bank Credit Card (x8349)
-                            </h3>
-                            <p className="account_amout">
-                                $184.30
-                            </p>
-                            <p className="account_description">
-                                Available Balance
-                            </p>
-                        </div>
-                            <button className="transaction_btn">
-                                View transaction
-                            </button>
-                        </section>
+                        <button className="transaction_btn">
+                            View transaction
+                        </button>
+                    </section>
+                ))}
             </main>
             <Footer />
         </div>
